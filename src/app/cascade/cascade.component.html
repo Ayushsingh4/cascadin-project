@@ -1,0 +1,129 @@
+
+<div class="sidebar">
+  <div class="a" >
+    <a class="active" href="http://localhost:4200/home" style="color: bisque;">Home</a>
+  </div>
+  <div class="a" >
+    <a class="active" href="#news" style="color: bisque;">News</a>
+  </div>
+  <div class="a" >
+    <a class="contact" href="#contact" style="color: bisque;">Contact</a>
+  </div>
+  <div class="a" >
+    <a class="contact" href="#About" style="color: bisque;">About</a>
+  </div>
+
+</div>
+
+<div class="content">
+  <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown" >
+    <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Select Product</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownManual" >
+      <button ngbDropdownItem  *ngFor="let c of productList" (click)="onSelect(c,typeProduct)" > {{ c.name }} </button>
+     
+    </div>
+  </div>
+  <div class="d-inline-block" ngbDropdown #myDrop2="ngbDropdown">
+    <button class="btn btn-outline-primary mr-2" id="dropdownManua2" ngbDropdownAnchor (focus)="myDrop2.open()">Select Brand</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownManua2">
+      <button ngbDropdownItem *ngFor="let s of brandList" (click)="onSelect(s,typeBrand)" >{{ s.name }}</button>
+    </div>
+  </div>
+  <hr style="width:100%;text-align:left;margin-left:0">
+
+  <div class="grid-container" >
+    <div class="grid-item" *ngFor= "let products of allProductList">
+      <div class="card" style="width: 18rem; ">
+      <img src="{{products.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{products.name}}</h5>
+        <p class="card-text">{{products.price}}</p>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div></div>
+     
+  </div>
+
+ 
+  <!-- <h2>Responsive Sidebar Example</h2>
+  <p>This example use media queries to transform the sidebar to a top navigation bar when the screen size is 700px or less.</p>
+  <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
+  <h3>Resize the browser window to see the effect.</h3> -->
+</div>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+            <div ngbDropdown class="d-inline-block">
+              <div class="dropdown-content" *ngIf="isProductSelect">
+                <div class="plchld">Select Product</div>
+                <div *ngFor="let c of productList" (click)="onSelect(c,typeProduct)">
+                    {{ c.name }} </div>
+            </div>
+            
+              </div>
+        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+        <li class="nav-item">
+            <div ngbDropdown class="d-inline-block">
+              <div class="dropdown-content" *ngIf="isBrandSelect">  
+                <div class="plchld">Select Brand</div>
+                <div *ngFor="let s of brandList" (click)="onSelect(s,typeBrand)">{{ s.name }}</div>
+            </div>
+            
+              </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav> -->
+
+
+
+<!-- Selected values Section -->
+<!-- <div class="itms">
+    <div class="chip" *ngFor="let val of selectedValues;let idx = index">
+        <span>{{val.text}}</span>
+        <span (click)="deleteSelects(val,val.type)" class="closebtn">&#10006;</span>
+    </div>
+</div>
+
+<div class="dropdown-content" *ngIf="isProductSelect">
+    <div class="plchld">Select Product</div>
+    <div *ngFor="let c of productList" (click)="onSelect(c,typeProduct)">
+        {{ c.name }} </div>
+</div>
+
+<div class="dropdown-content" *ngIf="isBrandSelect">  
+    <div class="plchld">Select Brand</div>
+    <div *ngFor="let s of brandList" (click)="onSelect(s,typeBrand)">{{ s.name }}</div>
+</div>
+
+<div class="dropdown-content" *ngIf="isItemsSelect">
+    <div class="plchld">Select Item</div>
+    <div *ngFor="let ct of itemList" (click)="onSelect(ct,typeItem)">{{ ct.name }}</div>
+</div> -->
+
+<!-- <div class="container-fluid" *ngIf="hideProducts" style="margin-left: 45px; margin-top: 20px;">
+    <h4 style="margin-left:12px ; color: brown;">All Products</h4>
+
+<ul *ngFor= "let products of allProductList">
+    <li>{{products.name}}</li>
+</ul>
+
+</div> -->
